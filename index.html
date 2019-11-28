@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="./css/estilos.css">
+    <link rel="icon" href="./img/icono.ico" type="image/x-icon">     
+    <title>Booking - Sylvain Afonso</title>
+</head>
+<body>
+    <form id="formulario-buscador" class="container">
+        <nav class="mt-2">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active bg-warning border-0 text-dark" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">&#x1f6cf; Hoteles</a>
+                <a class="nav-item nav-link bg-primary border-0 text-dark ml-2" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">&#x2708;&#x1f6cf; Vuelos y Hoteles</a>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="row bg-warning p-2">
+                <div class="col-12 col-md-3 p-2">
+                    <label for="texto-input" class="font-weight-bold etiqueta">&#x1F3D6; Destino:</label>
+                    <input id="texto-input" type="text" class="form-control" placeholder="Introduce un destino..."/>
+                </div>
+                <div class="col-12 col-md-2 p-2">
+                    <label for="fecha-input" class="font-weight-bold etiqueta">&#128747; Check-in:</label>
+                    <input id="fecha-input" type="date" class="form-control" unselectable="on"
+                    onselectstart="return false;"
+                    onmousedown="return false;"/>
+                </div>
+                <div id="div_noches" class="col-12 col-md-2 p-2">
+                    <label for="dias-input" class="font-weight-bold etiqueta">&#x1F319; Noches:</label>        
+                </div>
+                <div class="col-12 col-md-3 p-2">
+                    <label for="huespedes-input" class="font-weight-bold etiqueta">&#x1f6b9; Huéspedes:</label>
+                    <span id="huespedes-input" 
+                    class="overflow-hidden form-control font-weight-bold text-center" 
+                    unselectable="on"
+                    onselectstart="return false;" 
+                    onmousedown="return false;"><div>&#x1f6cf;<span id="numHabitaciones">1</span></div><div class="separator"></div><div>&#x1F6B6;<span id="numAdultos">2</span></div><div class="separator"></div><div>&#128512;<span id="numNinos">0</span></div></span>
+                    <div id="huespedes_opciones" class="position-absolute mt-2">
+                        <div id="div_room" class="div_habitaciones"></div>
+                        <div id="div_addRoom"></div>
+                    </div>
+                </div>
+                
+                <button id="boton_buscar" type="button" class="btn btn-info col-12 col-md-1 m-md-1 ml-md-5">Buscar</button>
+                
+            </div>
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="bg-primary p-2">
+                    <h1 class="text-center text-danger">&#9888;&#9888;&#9888;Estamos en construcción&#9888;&#9888;&#9888;</h1>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="./js/Reserva.js"></script>
+    <script src="./js/main-min.js"></script>
+    <script src="./js/autocompletado.js"></script>
+</body>
+</html>

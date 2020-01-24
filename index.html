@@ -1,232 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
-    <script
-			  src="https://code.jquery.com/jquery-3.4.1.min.js"
-			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-			  crossorigin="anonymous"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-      crossorigin="anonymous"
-    />
-    <script src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
-    <title>Inicio de Sesión</title>
-    <link rel="shortcut icon" type="image/x-icon" href="img/loginIcon.png" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="d-flex justify-content-center h-100">
-        <div class="card">
-          <div class="card-header">
-            <h3>Inicia Sesión</h3>
-            <div class="d-flex justify-content-end social_icon">
-              <span id="googleLogin"
-                ><i class="fab fa-google text-danger"></i
-              ></span>
-              <span id="twitterLogin"
-                ><i class="fab fa-twitter text-primary"></i
-              ></span>
-              <span id="githubLogin">
-                <i class="fab fa-github"></i>
-              </span>
-            </div>
-          </div>
-          <div class="card-body">
-            <form>
-              <div class="input-group form-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"
-                    ><i class="fas fa-user"></i
-                  ></span>
-                </div>
-                <input
-                  id="email"
-                  type="text"
-                  class="form-control"
-                  placeholder="Correo"
-                />
-              </div>
-
-              <div class="input-group form-group mt-4">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"
-                    ><i class="fas fa-key"></i
-                  ></span>
-                </div>
-                <input
-                  id="password"
-                  type="password"
-                  class="form-control"
-                  placeholder="Contraseña"
-                />
-              </div>
-              <p>
-                <small
-                  id="errorLogin"
-                  class="text-danger font-weight-bold invisible"
-                  >Usuario o contraseña incorrectos</small
-                >
-              </p>
-              <div class="form-group">
-                <input id="login" value="Login" class="btn w-100 login_btn" readonly/>
-              </div>
-            </form>
-            <a href="#" id="signup" class="mt-2"
-              ><span><i class="fas fa-info-circle"></i></span> Crear nuevo
-              usuario</a
-            >
-            
-            <br/>
-
-            <a href="#" id="phone" class="mt-2"
-              ><span><i class="fas fa-phone"></i></span> Iniciar Sesión por SMS</a
-            >
-          </div>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="recursos/js/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="recursos/js/jquery-ui-1.12.1/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" integrity="sha256-ENFZrbVzylNbgnXx0n3I1g//2WeO47XxoPe0vkp3NC8=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" integrity="sha256-3blsJd4Hli/7wCQ+bmgXfOdK7p/ZUMtPXY08jmxSSgk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="recursos/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>trajes de Canarias</title>
+</head>
+<body class="unselectable">
+    <div id="islas" class="d-flex justify-content-around pt-5"></div>
+    <div id="dificultad" class="ml-3 mt-5 d-flex p-3 pt-5 border border-primary rounded">
+        <div id="slider"></div>
+        <div>
+            <h5 class="ml-1">Nivel de<br/>Dificultad:</h5><br/>
+            <span id="lvlDificultad" class="ml-3 font-weight-bold text-warning">Medio</span>
         </div>
-      </div>
     </div>
+    <div id="trajes"></div>
 
-  <!--Modal Nuevo Usuario-->
-    <div id="myModal" class="modal" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title"><i class="fas fa-user"></i> Nuevo usuario</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <label for="exampleInputEmail1" class="font-weight-bold"><i class="fas fa-envelope"></i> E-Mail:</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="newEmail"
-                  aria-describedby="emailHelp"
-                />
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1" class="font-weight-bold"
-                  ><i class="fas fa-key"></i> Contraseña:</label
-                >
-                <input type="password" class="form-control" id="newPassword" />
-              </div>
-
-              <div id="passReq">
-                <div class="container-fluid">
-                  <h5 class="text-center font-weight-bold">
-                    <i class="fa fa-asterisk" aria-hidden="true"></i>
-                      Requerimientos de contraseña:
-                  </h5>
-                  <ul class="mt-4">
-                    <li class="mb-3">
-                      <span id="passReq1"
-                        ><i class="fas fa-times-circle text-danger"></i></span
-                      ><span id="passReq1Text" class="ml-1"
-                        >Al menos 8 caracteres</span
-                      >
-                    </li>
-                    <li class="mb-3">
-                      <span id="passReq2"
-                        ><i class="fas fa-times-circle text-danger"></i></span
-                      ><span id="passReq2Text" class="ml-1"></span>Al menos 1
-                      numero
-                    </li>
-                    <li>
-                      <span id="passReq3"
-                        ><i class="fas fa-times-circle text-danger"></i></span
-                      ><span id="passReq3Text" class="ml-1"></span>Al menos 1
-                      letra
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <button id="newUser" disabled class="btn btn-primary float-right mt-2">
-                Crear Usuario
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
+    <div id="dialog-confirm" title="Desea Volver a Jugar?">
+        <p>Ha obtenido una puntuaci&oacute;n total de <span id="puntuacion" class="font-weight-bold text-success">0</span>.</p>
     </div>
-
-<!--Modal telefono-->
-    <div id="myModal2" class="modal" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title"><i class="fas fa-phone"></i> Número de Teléfono</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-              <div class="d-flex">
-                <div id="countryCodes"></div>
-                <input id="phoneNumber" type="text" class="form-control align-self-center py-4 ml-2" placeholder="608054085"/>
-              </div>
-
-              <div class="d-flex justify-content-around mt-2">
-                <div id="recaptcha-container"></div>
-                <button id="enviarSMS" class="btn btn-success">Enviar SMS</button>
-              </div>
-
-              <p id="mensaje" class="text-warning font-weight-bold mt-5"></p>
-              
-              <hr class="mt-5"/>
-
-              <h5 class="mt-3"><i class="fa fa-asterisk" aria-hidden="true"></i>
-                 Código de Verificación:</h5>
-
-              <div class="row">
-                <div class="col-7">
-                  <input type="text" id="verificationCode" class="form-control" data-placement="top" data-trigger="manual" data-toggle="popover" title="Codigo incorrecto" data-content="El codigo introducido es incorrecto, compruebelo o vuelva a enviar un SMS con el codigo de verificacion"/>
-                </div>
-                <div class="col-5">
-                  <button id="confirmarCodigo" disabled class="btn btn-primary float-right">Confirmar Código</button>
-                </div>
-              </div>              
-          </div>
-        </div>
-      </div>
-    </div>
-    <script src="js/main.js"></script>
-    <script src="js/getCountries.js"></script>
-  </body>
+    <audio id="correct">
+        <source src="recursos/sounds/correct.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="error">
+        <source src="recursos/sounds/error.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <script src="recursos/js/main.js"></script>    
+</body>
 </html>

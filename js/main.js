@@ -445,13 +445,11 @@ function infoComic(idComic){
                     success: (res) => {
                         $('#spinnerComic').remove();
                         let personajes = res.data.results;
-                        let imgTxt = personajes.thumbnail.path;
-                        let imgModified = imgTxt.slice(0, 2) + 's' + imgTxt.slice(3, imgTxt.length-1);
 
                         personajes.forEach(personaje => {
                             $('#modal-body').append(`
                                 <div class="d-flex mt-2 border border-info p-1 rounded">
-                                    <img src="${imgModified}.${personaje.thumbnail.extension}" width="150"  alt="imagen de ${personaje.name}"/>              
+                                    <img src="${personaje.thumbnail.path}.${personaje.thumbnail.extension}" width="150"  alt="imagen de ${personaje.name}"/>              
                                     <h2 class="text-center font-weight-bold text-danger ml-2">${personaje.name}</h2>
                                 </div>
                             `);
@@ -518,14 +516,11 @@ function infoPersonaje(idPersonaje){
                         success: (res) => {
                             $('#spinnerPersonaje').remove();
                             let comic = res.data.results[0];
-
-                            let imgTxt = comic.thumbnail.path;
-                            let imgModified = imgTxt.slice(0, 2) + 's' + imgTxt.slice(3, imgTxt.length-1);
     
                             $(`
                                 <div class="d-flex mt-2 border border-info p-1 rounded">
                                     <div>
-                                        <img class="border border-info rounded" src="${imgModified}.${comic.thumbnail.extension}" width="150"  alt="imagen de ${comic.title}"/>
+                                        <img class="border border-info rounded" src="${comic.thumbnail.path}.${comic.thumbnail.extension}" width="150"  alt="imagen de ${comic.title}"/>
                                     </div>
                                     <div>
                                         <h5 class="ml-2 mt-2">${comic.title}</h5>

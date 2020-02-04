@@ -1,40 +1,79 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="recursos/js/jquery-ui-1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="recursos/js/jquery-ui-1.12.1/jquery-ui.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" integrity="sha256-ENFZrbVzylNbgnXx0n3I1g//2WeO47XxoPe0vkp3NC8=" crossorigin="anonymous" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" integrity="sha256-3blsJd4Hli/7wCQ+bmgXfOdK7p/ZUMtPXY08jmxSSgk=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="recursos/css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>trajes de Canarias</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="js/simplePagination/jquery.simplePagination.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="js/simplePagination/simplePagination.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Marvel" /> 
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-database.js"></script>
+    <link rel="icon" href="images/marvel-icon.png"/>
+    <title>Marvel API</title>
 </head>
-<body class="unselectable">
-    <div id="islas" class="d-flex justify-content-around pt-5"></div>
-    <div id="dificultad" class="ml-3 mt-5 d-flex p-3 pt-5 border border-primary rounded">
-        <div id="slider"></div>
-        <div>
-            <h5 class="ml-1">Nivel de<br/>Dificultad:</h5><br/>
-            <span id="lvlDificultad" class="ml-3 font-weight-bold text-warning">Medio</span>
+<body>
+    <div>
+        <div class="container-fluid">
+            <div id="buscador" class="my-3">
+              <div class="d-flex justify-content-center">
+                <input id="filtro" type="text" class="form-control" placeholder="Buscar ..." />
+                <button id="filtroBuscador" class="btn btn-primary ml-2"><i class="fa fa-search"></i></button>
+              </div>                
+            </div>
+
+            <div class="wrapper d-lg-flex justify-content-lg-around">
+                <div>
+                    <h4 class="ml-2 mb-2 text-danger titulo">Personajes:</h4>
+                    <div id="personajes" class="p-2">
+                      <div>
+                        <img class="spinner" src="images/spinner.svg" width="100" height="100"/>
+                      </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="ml-2 mb-2 text-danger titulo">Comics:</h4>
+                    <div id="comics" class="p-2">
+                      <div>
+                        <img class="spinner" src="images/spinner.svg" width="100" height="100"/>    
+                      </div>
+                    </div>
+                </div>                           
+            </div>
+
+            <h4 id="fav-title" class="font-weight-bold text-warning text-center">Favoritos:</h4>
+            <div id="favoritos" class="border-primary rounded m-2">
+                <h5 class="m-2">Personajes:</h5>
+                <div id="fav-personajes" class="d-flex flex-wrap">
+                  <img class="spinner ml-5" src="images/spinner.svg" width="100" height="100"/>
+                </div>
+                <hr/>
+                <h5 class="m-2">Comics:</h5>
+                <div id="fav-comics" class="d-flex flex-wrap">
+                  <img class="spinner ml-5" src="images/spinner.svg" width="100" height="100"/>
+                </div>
+            </div>
         </div>
     </div>
-    <div id="trajes"></div>
-
-    <div id="dialog-confirm" title="Desea Volver a Jugar?">
-        <p>Ha obtenido una puntuaci&oacute;n total de <span id="puntuacion" class="font-weight-bold text-success">0</span>.</p>
-    </div>
-    <audio id="correct">
-        <source src="recursos/sounds/correct.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-    <audio id="error">
-        <source src="recursos/sounds/error.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-    <script src="recursos/js/main.js"></script>    
+      <div class="modal" id="info" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 id="modal-title" class="modal-title"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div id="modal-body" class="modal-body"></div>
+          </div>
+        </div>
+      </div>
+    <script src="js/main.js"></script>
 </body>
 </html>

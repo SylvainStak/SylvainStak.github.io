@@ -2,78 +2,117 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="./Libraries/P5js/p5.js"></script>
+    <link href="./Libraries/Bootstrap/css/bootstrap.min.css" rel="stylesheet">    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="js/simplePagination/jquery.simplePagination.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="js/simplePagination/simplePagination.css">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Marvel" /> 
-    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-database.js"></script>
-    <link rel="icon" href="images/marvel-icon.png"/>
-    <title>Marvel API</title>
+    <title>Projects by Sylvain Afonso</title>
+    <style>
+        body{margin: 0px;padding: 0px;}
+        canvas{position: fixed;top: 0;left: 0;z-index: -1;}
+    </style>
 </head>
 <body>
-    <div>
-        <div class="container-fluid">
-            <div id="buscador" class="my-3">
-              <div class="d-flex justify-content-center">
-                <input id="filtro" type="text" class="form-control" placeholder="Buscar ..." />
-                <button id="filtroBuscador" class="btn btn-primary ml-2"><i class="fa fa-search"></i></button>
-              </div>                
-            </div>
-
-            <div class="wrapper d-lg-flex justify-content-lg-around">
-                <div>
-                    <h4 class="ml-2 mb-2 text-danger titulo">Personajes:</h4>
-                    <div id="personajes" class="p-2">
-                      <div>
-                        <img class="spinner" src="images/spinner.svg" width="100" height="100"/>
-                      </div>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="ml-2 mb-2 text-danger titulo">Comics:</h4>
-                    <div id="comics" class="p-2">
-                      <div>
-                        <img class="spinner" src="images/spinner.svg" width="100" height="100"/>    
-                      </div>
-                    </div>
-                </div>                           
-            </div>
-
-            <h4 id="fav-title" class="font-weight-bold text-warning text-center">Favoritos:</h4>
-            <div id="favoritos" class="border-primary rounded m-2">
-                <h5 class="m-2">Personajes:</h5>
-                <div id="fav-personajes" class="d-flex flex-wrap">
-                  <img class="spinner ml-5" src="images/spinner.svg" width="100" height="100"/>
-                </div>
-                <hr/>
-                <h5 class="m-2">Comics:</h5>
-                <div id="fav-comics" class="d-flex flex-wrap">
-                  <img class="spinner ml-5" src="images/spinner.svg" width="100" height="100"/>
-                </div>
-            </div>
-        </div>
+    <div id="banner" class="container bg-primary rounded p-3 mt-4">
+        <h1 class="text-center font-weight-bold">Javascript Algorithms Visualizations</h1>
     </div>
-      <div class="modal" id="info" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 id="modal-title" class="modal-title"></h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-4">
+                <div class="card">
+                    <img src="./images/GameOfLife.png" class="card-img-top" alt="Game of Life thumbnail">
+                    <div class="card-body">
+                      <h5 class="card-title">Cellular Automaton: Game Of Life</h5>
+                      <p class="card-text">Visualization of the Conway's Game of Life with customizable grid.</p>
+                      <a href="Projects/GameOfLife/index.html" class="btn btn-primary stretched-link">Live Demo</a>
+                    </div>
+                </div>
             </div>
-            <div id="modal-body" class="modal-body"></div>
-          </div>
-        </div>
-      </div>
-    <script src="js/main.js"></script>
+
+            <div class="col-4">
+                <div class="card">
+                    <img src="./images/SortingVisualizer.PNG" class="card-img-top" alt="Cellular Automaton thumbnail">
+                    <div class="card-body">
+                      <h5 class="card-title">Sorting Visualizer</h5>
+                      <p class="card-text">Sorting visualizer by color implementing 4 of the most famous sorting algorithms.</p>
+                      <a href="Projects/SortingVisualizer/index.html" class="btn btn-primary stretched-link">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card">
+                    <img src="./images/CellularAutomaton.png" class="card-img-top" alt="Cellular Automaton thumbnail">
+                    <div class="card-body">
+                      <h5 class="card-title">Wolfram Elementary Cellular Automaton</h5>
+                      <p class="card-text">This is a visualization of the rules from 0 to 255 of Wolfram Elementary Cellular Automaton.</p>
+                      <a href="Projects/CellularAutomaton/index.html" class="btn btn-primary stretched-link">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+
+    <script>
+        function Star() {
+            this.x = random(-width, width);
+            this.y = random(-height, height);
+            this.z = random(width);
+            this.pz = this.z;
+
+            this.update = function() {
+                this.z = this.z - speed;
+                if (this.z < 1) {
+                this.z = width;
+                this.x = random(-width, width);
+                this.y = random(-height, height);
+                this.pz = this.z;
+                }
+            }
+
+            this.show = function() {
+                fill(250, 242, 235);
+                noStroke();
+
+                var sx = map(this.x / this.z, 0, 1, 0, width);
+                var sy = map(this.y / this.z, 0, 1, 0, height);
+
+                var r = map(this.z, 0, width, 16, 0);
+                ellipse(sx, sy, r, r);
+
+                var px = map(this.x / this.pz, 0, 1, 0, width);
+                var py = map(this.y / this.pz, 0, 1, 0, height);
+
+                this.pz = this.z;
+
+                stroke(255);
+                strokeWeight(r);
+                line(px, py, sx, sy);
+
+            }
+        }
+
+        var stars = [];
+
+        var speed;
+
+        function setup() {
+        createCanvas(windowWidth, windowHeight);
+            for (var i = 0; i < 500; i++) {
+                stars[i] = new Star();
+            }
+        }
+
+        function draw() {
+        speed = 10;
+        background(0);
+        translate(width / 2, height / 2);
+            for (var i = 0; i < stars.length; i++) {
+                stars[i].update();
+                stars[i].show();
+            }
+        }
+    </script>
 </body>
 </html>

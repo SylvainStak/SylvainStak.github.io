@@ -1,1 +1,0 @@
-Se ha añadido la funcionalidad de mantener un listado de los comics y personajes favoritos a través de la funcion firebase realtime database
